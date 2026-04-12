@@ -81,3 +81,6 @@ E. Core Engine (Background)
   Optimization algorithm runs locally and/or via Firebase Functions.
   Recalculates automatically after any loan change.
   Consolidation scanner compares user profiles against partner offers.
+
+VI. Versioning / Chnages
+  April 12, 2026: Initial code commit for code base. Google Backend Firebase services configured for auth. Working on UI in next phase of code changes.
