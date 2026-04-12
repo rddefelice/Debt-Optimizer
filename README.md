@@ -84,3 +84,4 @@ E. Core Engine (Background)
 
 VI. Versioning / Chnages
   April 12, 2026: Initial code commit for code base. Google Backend Firebase services configured for auth. Working on UI in next phase of code changes.
+    -  Architectural framework (Data, Domain, Dependency, and UI layers) established. Login screen with account sign-up buttons complete. Initial landing screen once logged in established. Adding additional app screens in        future updates.
