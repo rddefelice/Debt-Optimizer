@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "85696672949",
+    "project_id": "debt-optimizer-6368a",
+    "storage_bucket": "debt-optimizer-6368a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85696672949:android:5b54a2b2ee28319a26bafc",
+        "android_client_info": {
+          "package_name": "com.rddefelice.debtoptimizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85696672949-dstbvk5se02qgh5ut0f00vsgous5il57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSSVgcpe2ggPBKw7gjgJe-ILvvPQPy7yo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85696672949-dstbvk5se02qgh5ut0f00vsgous5il57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
