@@ -57,24 +57,14 @@ A. Navigation Structure
   Single‑activity architecture with a Bottom Navigation Bar (three persistent tabs).
 
 B. Tab 1 – Home (Default Screen)
-  Displays recommended repayment structure (interest saved, payoff timeline, loan‑by‑loan allocation).
-  Live notification feed for consolidation and settlement offers.
-  Quick‑action buttons: Apply Now and Recalculate.
+  Displays current account information with buttons to add new accounts or calculate repayment structure.
 
-C. Tab 2 – Debt Inputs
-  Add, edit, or delete individual loans.
-  Required fields per loan:
-    Loan nickname
-    Current principal balance
-    Annual interest rate (APR)
-    Remaining term (months)
-    Minimum monthly payment
-    Optional fields: loan type, lender name, fixed/variable rate flag
+C. Tab 2 – Offers
+  Financial offers catered for the user.  
 
 D. Tab 3 – Settings
   User account management (update email, password, phone number)
-  Profile picture upload
-  Preferences: notification toggles, currency format, repayment strategy priority
+  Preferences: notification toggles
   Data export, account deletion, support links
 
 E. Core Engine (Background)
