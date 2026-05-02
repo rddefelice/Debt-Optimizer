@@ -6,12 +6,11 @@ import com.rddefelice.debtoptimizer.domain.model.Debt
 import com.rddefelice.debtoptimizer.domain.repository.DebtRepository
 import com.rddefelice.debtoptimizer.domain.usecase.CalculateAvalanche
 import com.rddefelice.debtoptimizer.domain.usecase.CalculateSnowball
-import com.rddefelice.debtoptimizer.domain.usecase.DebtPayoffPlan
+import com.rddefelice.debtoptimizer.domain.usecase.PayoffResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,9 +20,9 @@ enum class CalculatorMethod {
 }
 
 data class CalculatorUiState(
-    val method: CalculatorMethod = CalculatorMethod.SNOWBALL,
     val extraPayment: Double = 0.0,
-    val payoffPlan: List<DebtPayoffPlan> = emptyList(),
+    val snowballResult: PayoffResult? = null,
+    val avalancheResult: PayoffResult? = null,
     val isLoading: Boolean = false
 )
 
@@ -37,10 +36,6 @@ class CalculatorViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(CalculatorUiState())
     val uiState: StateFlow<CalculatorUiState> = _uiState.asStateFlow()
 
-    fun setMethod(method: CalculatorMethod) {
-        _uiState.update { it.copy(method = method) }
-    }
-
     fun setExtraPayment(amount: Double) {
         _uiState.update { it.copy(extraPayment = amount) }
     }
@@ -51,12 +46,14 @@ class CalculatorViewModel @Inject constructor(
             val debts = repo.getAllDebts()
             val state = _uiState.value
             
-            val plan = when (state.method) {
-                CalculatorMethod.SNOWBALL -> calculateSnowball.execute(debts, state.extraPayment)
-                CalculatorMethod.AVALANCHE -> calculateAvalanche.execute(debts, state.extraPayment)
-            }
+            val snowball = calculateSnowball.execute(debts, state.extraPayment)
+            val avalanche = calculateAvalanche.execute(debts, state.extraPayment)
             
-            _uiState.update { it.copy(payoffPlan = plan, isLoading = false) }
+            _uiState.update { it.copy(
+                snowballResult = snowball,
+                avalancheResult = avalanche,
+                isLoading = false
+            ) }
         }
     }
 }

@@ -3,6 +3,7 @@ package com.rddefelice.debtoptimizer.data.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.rddefelice.debtoptimizer.domain.model.Debt
+import com.rddefelice.debtoptimizer.domain.model.DebtType
 
 @Entity(tableName = "debts")
 data class DebtEntity(
@@ -10,7 +11,9 @@ data class DebtEntity(
     val name: String,
     val balance: Double,
     val apr: Double,
-    val minimumPayment: Double
+    val minimumPayment: Double,
+    val remainingTermMonths: Int? = null,
+    val type: DebtType = DebtType.OTHER
 )
 
 fun DebtEntity.toDomain(): Debt {
@@ -19,7 +22,9 @@ fun DebtEntity.toDomain(): Debt {
         name = name,
         balance = balance,
         apr = apr,
-        minimumPayment = minimumPayment
+        minimumPayment = minimumPayment,
+        remainingTermMonths = remainingTermMonths,
+        type = type
     )
 }
 
@@ -29,6 +34,8 @@ fun Debt.toEntity(): DebtEntity {
         name = name,
         balance = balance,
         apr = apr,
-        minimumPayment = minimumPayment
+        minimumPayment = minimumPayment,
+        remainingTermMonths = remainingTermMonths,
+        type = type
     )
 }

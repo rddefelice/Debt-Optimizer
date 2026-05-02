@@ -21,7 +21,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
-        Room.databaseBuilder(context, AppDatabase::class.java, "debt_db")
+        Room.databaseBuilder(context, AppDatabase::class.java, "debt_optimizer_db_v6")
             .fallbackToDestructiveMigration(dropAllTables = true)
             .build()
 
