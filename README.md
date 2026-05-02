@@ -1,73 +1,66 @@
-Debt Optimizer – Android App for Optimized Loan Repayment and Consolidation
+# Debt Optimizer
 
-I. Project Description
+**Debt Optimizer** is a modern Android application designed to help users escape the cycle of high-interest debt through mathematically optimized repayment strategies and proactive consolidation opportunities.
 
-A. Overview
-  Debt Optimizer is a simple, user‑friendly Android mobile application designed to help individuals with multiple active loans identify the mathematically optimal repayment strategy.
-  Core value proposition: Automatically calculate and recommend the most effective payment allocation across loans while proactively surfacing real‑world debt consolidation and settlement opportunities.
+---
 
-B. Target Audience
-  U.S. adults currently managing two or more loans (credit cards, personal loans, student loans, auto loans, etc.).
+## Overview
 
-C. Project Scope
-  Minimum viable product (MVP) focused on loan input, optimization engine, notifications, and basic account management.
-  Future phases may include payment simulators and integration with credit‑reporting APIs (post‑MVP).
+Managing multiple loans often leads to "minimum payment fatigue," where borrowers pay significantly more in interest than necessary. Debt Optimizer automates the strategy, recommending exactly where to put every dollar to minimize interest and shorten repayment timelines.
 
-II. Problem Addressing
-A. Market Context
-  77% of U.S. citizens carry some form of debt.
-  Multiple‑loan borrowers often default to minimum payments, resulting in unnecessarily high total interest paid and extended repayment timelines.
+### Key Features
+*   **Optimization Engine:** Automatically calculates the most effective payment allocation (e.g., Debt Avalanche or customized weighted models).
+*   **Opportunity Scanning:** Real-time notifications for eligible consolidation loans, balance-transfer offers, and settlement programs.
+*   **Offline-First Design:** View and manage your loan profiles even without an internet connection.
+*   **Cross-Device Support:** Adaptive layouts optimized for both Android phones and tablets (API 26+).
 
-B. Solution Impact
-  Provides personalized, data‑driven repayment structures (e.g., debt avalanche, customized weighted allocation).
-  Actively scans and notifies users of eligible consolidation loans, balance‑transfer offers, and settlement programs, reducing total debt burden and monthly payments.
+---
 
-III. Platform
-A. Development Environment
-  Android Studio (latest stable version) as the primary IDE.
-  Language: Kotlin (preferred) with full Jetpack Compose support for modern UI.
+### Tech Stack
 
-B. Deployment & Ecosystem
-  Google Play Store distribution.
-  Backend and services remain inside the Google ecosystem for seamless integration and security.
+### Frontend
+*   **Language:** Kotlin
+*   **UI Framework:** Jetpack Compose (Declarative UI)
+*   **Local Database:** Room (for secure, offline-first storage)
+*   **Architecture:** Single-activity with Bottom Navigation.
 
-C. Target Devices
-  Android 8.0 (API 26) and above.
-  Optimized for both phones and tablets (adaptive layouts).
+### Backend (Google Firebase Ecosystem)
+*   **Authentication:** Firebase Auth (Email/Password & Google Sign-In).
+*   **Database:** Cloud Firestore for secure cloud syncing.
+*   **Cloud Functions:** Serverless triggers for periodic consolidation scans.
+*   **Notifications:** Firebase Cloud Messaging (FCM).
 
-IV. Front/Back End Support
-A. Frontend Architecture
-  Native Android app built in Android Studio.
-  Jetpack Compose for declarative UI.
-  Room database for offline‑first loan storage.
+---
 
-B. Backend Architecture
-  The unified backend platform is Google Firebase:
-    Firebase Authentication – user accounts, email/password, Google Sign‑In
-    Cloud Firestore – secure storage of loan profiles and calculation history
-    Firebase Cloud Messaging (FCM) – real‑time notifications for consolidation opportunities
-    Firebase Functions – optional serverless triggers for periodic consolidation scans
+## Getting Started
 
-C. Integration & Security
-  All data encrypted in transit and at rest (Firebase default).
-  No third‑party backend services outside the Google ecosystem.
+### Prerequisites
+*   Android Studio Jellyfish | 2023.3.1 or newer.
+*   JDK 17+.
+*   A Firebase project (you will need to add your own `google-services.json`).
 
-V. Functionality
-A. Navigation Structure
-  Single‑activity architecture with a Bottom Navigation Bar (three persistent tabs).
+### Installation
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com
+   ```
+2. **Open in Android Studio:**
+   Select `File > Open` and navigate to the cloned directory.
+3. **Build & Run:**
+   Sync Gradle and click the **Run** button to launch on an emulator or physical device.
 
-B. Tab 1 – Home (Default Screen)
-  Displays current account information with buttons to add new accounts or calculate repayment structure.
+---
 
-C. Tab 2 – Offers
-  Financial offers catered for the user.  
+## Roadmap
+- [x] **Phase 1:** MVP (Current) - Loan input, basic optimization, and notifications.
+- [x] **Phase 2:** Advanced Payment Simulators - "What-if" scenarios for extra monthly payments.
+- [ ] **Phase 3:** Credit-Reporting API integration for automatic loan discovery.
 
-D. Tab 3 – Settings
-  User account management (update email, password, phone number)
-  Preferences: notification toggles
-  Data export, account deletion, support links
+---
 
-E. Core Engine (Background)
-  Optimization algorithm runs locally and/or via Firebase Functions.
-  Recalculates automatically after any loan change.
-  Consolidation scanner compares user profiles against partner offers.
+[Project Outline](https://github.com/rddefelice/Debt-Optimizer/wiki/Debt-Optimizer-Project-Outline-Final)
+
+---
+
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
